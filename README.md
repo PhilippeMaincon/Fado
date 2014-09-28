@@ -108,7 +108,10 @@ One can `stir` a `Vector`, `Matrix` or `Array` of any dimension.
 
 Here, `b_a` is an `Array` which first dimensions are the dimensions of `a` and last dimensions the dimensions of `b`.  In the case of multiple derivatives, the dimensions of the variable `stir`ed first appear first in the derivative. The derivative of a `Float64` with respect to a `Float64` is a `Float64`.  Any other combination (`Array` wrt `Float64`, etc.) yields an `Array`.
 
-It is possible to index into "arrays of Fados" XXXXXX
+It is possible to index into "arrays of Fados" in the usual way. `Fado`s are stored in `Array{Any}`. This is the simplest way to ensure that the following does not fail.
+
+    (A,da) = stir(rand(4)) 
+    A[3] = 3.
 
 `Leibnitz.jl`
 -------------
